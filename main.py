@@ -14,10 +14,10 @@ def last_commit_message():
         # Get the JSON blob for the master repo (currently under msoucy)
         a = urlopen("https://api.github.com/repos/msoucy/freeform.py/commits")
 
-    # Read in the JSON and make it a dict-like
+        # Read in the JSON and make it a dict-like
         jobj = jsonloads(a.read())
 
-    # Print the tex
+        # Print the message of the last commit
         print "The latest commit message is: '{0}'".format(
             *(jobj[0][u'commit'][u'message'],))
     except:
