@@ -27,6 +27,9 @@ def last_commit_message():
     # Its Dangerous to go alone! Take this!
     return "https://www.google.com/search?q=carlton&tbm=isch"
 
+import this
+
+
 def main():
     carlton = last_commit_message()
     pass
