@@ -7,8 +7,8 @@ def last_commit_message():
     repo on GitHub and prints it to console. If for some reason it fails,
     the function will state that has no idea what it is doing.
 
-    returns: a `str` representation of the URL for a Google Image Search
-    for 'Carlton' as it may be useful at some point.
+    returns: A string that represents the GitHub username of the last
+    committer. If there was a problem, return None.
     """
     try:
         # Get the JSON blob for the master repo (currently under msoucy)
@@ -23,16 +23,18 @@ def last_commit_message():
     except:
         # Something broke somewhere, and this isn't enterprise Java
         print "I have no idea what I am doing."
+        jobj = None
 
-    # Its Dangerous to go alone! Take this!
-    return "https://www.google.com/search?q=carlton&tbm=isch"
+    # return the last committer
+    return jobj[0][u'author'][u'login'] if jobj else None
 
 import this
 
 
 def main():
-    carlton = last_commit_message()
+    last_author = last_commit_message()
     pass
 
 if __name__ == '__main__':
     main()
+
